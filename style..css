@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;400;500;600;800;1000&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,700;0,900;1,300;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #1F1D36;
+    font-family: 'Roboto', sans-serif;
+}
+.nav-menu::before,
+.nav-menu::after {
+    content: "";
+    display: table;
+}
+.nav-menu::after {
+    clear: both;
+}
+.nav-menu {
+    *zoom: 1;
+}
+nav {
+    padding: 50px;
+}
+.menu, .submenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.menu {
+    margin: 50px auto;
+    width: 800px;
+    display: flex;
+    column-gap: 1rem;
+}
+.menu > li {
+    background: #000;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    transform: skewX(25deg);
+}
+.menu a {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 14px;
+}
+.menu li:hover {
+    background: #e74c3c;
+}
+.menu > li > a {
+    transform: skewX(-25deg);
+    padding: 1rem 2rem;
+}
+.menu-item {
+    width: 200px;
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    transform: skewX(-25deg);
+    transform-origin: left top;
+    list-style: none;
+}
+.menu-item li {
+    background-color: #34495e;
+    position: relative;
+    overflow: hidden;
+}
+.menu-item > li > a {
+    padding: 1rem 2rem;
+}
+.menu-item > li::after {
+    content: "";
+    position: absolute;
+    top: -125%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+}
+.menu-item > li:nth-child(odd) {
+    transform: skewX(-25deg) translateX(0);
+}
+.menu-item > li:nth-child(odd) > a {
+    transform: skewX(25deg);
+}
+.menu-item > li:nth-child(odd)::after {
+    right: -50%;
+    transform: skewX(-25deg) rotate(3deg);
+}
+.menu-item > li:nth-child(even) {
+    transform: skewX(25deg) translateX(0);
+}
+.menu-item > li:nth-child(even) > a {
+    transform: skewX(-25deg);
+}
+.menu-item > li:nth-child(even)::after {
+    transform: skewX(25deg) rotate(3deg);
+    left: -50%;
+}
+.menu-item, 
+.menu-item li {
+    opacity: 0;
+    visibility: hidden;
+}
+.menu-item li {
+    transition: 0.3s ease transform;
+}
+.menu li:hover .menu-item,
+.menu li:hover .menu-item li {
+    opacity: 1;
+    visibility: visible;
+}
+.menu li:hover .menu-item li:nth-child(even) {
+    transform: skewX(25deg) translateX(15px);
+}
+.menu li:hover .menu-item li:nth-child(odd) {
+    transform: skewX(-25deg) translateX(-15px);
+}
+
